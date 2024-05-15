@@ -8,6 +8,15 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
     list_display=('id','title','price','featured','category')
-admin.site.register(Cart)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+    
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display=('id','user','menuitem','quantity','unit_price','price')
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display=('id','user','delivery_crew','status','total','date')
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display=('id','order','menuitem','quantity','unit_price','price')
